@@ -1,0 +1,32 @@
+@if (loading()) {
+  <div class="loading">
+    <i class="fa-solid fa-spinner fa-spin"></i> Loading...
+  </div>
+}
+
+@if (error()) {
+  <div class="error">{{ error() }}</div>
+}
+
+@if (!loading() && !error() && claim()) {
+  <div class="preview-container">
+    <div class="preview-header">
+      <span class="preview-title">Credit Note Preview</span>
+      <div class="preview-icons">
+        <button class="icon-btn" title="Download CWR" (click)="downloadCWR()">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <button class="icon-btn" title="Download PDF" (click)="downloadPDF()">
+          <i class="fa-solid fa-download"></i>
+        </button>
+        <button class="icon-btn close" title="Close" (click)="closePreview()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="pdf-viewer">
+      <canvas #pdfCanvas></canvas>
+    </div>
+  </div>
+}

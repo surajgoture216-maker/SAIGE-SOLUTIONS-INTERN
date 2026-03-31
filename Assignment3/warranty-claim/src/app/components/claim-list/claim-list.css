@@ -1,0 +1,141 @@
+.container {
+  padding: 2rem;
+  font-family: sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+thead tr {
+  background: #2c3e50;
+  color: white;
+}
+
+th, td {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.claim-link {
+  color: #2980b9;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.claim-link:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.approved {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.pending {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.loading, .error, .no-data {
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+.error { color: #c62828; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  border-radius: 12px;
+  overflow-y: auto;
+  position: relative;
+}
+/* ── Denied badge ── */
+.badge.denied {
+  background: #fdecea;
+  color: #c62828;
+}
+
+/* ── Denied message ── */
+.denied-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.denied-icon {
+  font-size: 4rem;
+  color: #c62828;
+  margin-bottom: 1rem;
+}
+
+.denied-message h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.denied-message p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+}
+
+.close-denied {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #c62828;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.close-denied:hover {
+  opacity: 0.85;
+}

@@ -1,0 +1,78 @@
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: white;
+}
+
+.preview-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.preview-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: #f0f0f0;
+  color: #2c3e50;
+}
+
+.icon-btn.close:hover {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.divider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pdf-viewer {
+  overflow-y: auto;
+  max-height: 78vh;
+  padding: 1.5rem;
+  background: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pdf-viewer canvas {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: white;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.loading, .error {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.error { color: #c62828; }

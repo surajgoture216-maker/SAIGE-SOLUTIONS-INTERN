@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Warranty Claims</h2>
+
+  @if (loading()) {
+    <div class="loading">
+      <i class="fa-solid fa-spinner fa-spin"></i> Loading claims...
+    </div>
+  }
+
+  @if (error()) {
+    <div class="error">
+      <i class="fa-solid fa-triangle-exclamation"></i> {{ error() }}
+    </div>
+  }
+
+  @if (!loading() && !error()) {
+    <table>
+      <thead>
+        <tr>
+          <th>Warranty ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (claim of claims(); track claim._id) {
+          <tr>
+            <td>
+              <span class="claim-link" (click)="onClaimClick(claim)">
+             #{{ claim.claimNo }}
+              </span>
+            </td>
+            <td>
+              <span class="badge"
+                [ngClass]="{
+                  'approved': claim.warrantyStatus === 'Approved',
+                  'pending': claim.warrantyStatus === 'Pending',
+                  'denied': claim.warrantyStatus === 'Denied'
+                }">
+                {{ claim.warrantyStatus }}
+              </span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="2" class="no-data">No claims found</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
+
+@if (showModal()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      @if (selectedStatus() === 'Approved') {
+        <app-claim-preview
+          [claimId]="selectedClaimId()"
+          (close)="closeModal()">
+        </app-claim-preview>
+      }
+     @if (selectedStatus() === 'Pending') {
+  <app-claim-pending (close)="closeModal()"></app-claim-pending>
+}
+       @if (selectedStatus() === 'Denied') {
+        <div class="denied-message">
+          <div class="denied-icon">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+          <h3>Claim Denied</h3>
+          <p>This warranty claim has been reviewed and denied.</p>
+          <p>Please contact support for more information.</p>
+          <button class="close-denied" (click)="closeModal()">Close</button>
+        </div>
+      }
+    </div>
+  </div>
+}
